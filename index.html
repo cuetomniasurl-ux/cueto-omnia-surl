@@ -22,6 +22,22 @@
   .lead{font-size:18px;color:var(--gray);max-width:760px;margin:0 0 22px}
   .btn{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;padding:12px 22px;border-radius:6px;font-weight:600}
   .btn.light{background:#fff;color:var(--navy);border:1px solid var(--navy);margin-left:10px}
+  .modal{position:fixed;inset:0;background:rgba(10,37,64,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
+  .modal.open{display:flex}
+  .modal .box{background:#fff;border-radius:10px;max-width:480px;width:100%;padding:22px;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+  .modal h3{margin:0 0 6px;color:var(--navy);font-size:19px}
+  .modal label{display:block;font-size:13px;color:var(--gray);margin:10px 0 4px}
+  .modal input,.modal textarea,.modal select{width:100%;padding:9px;border:1px solid var(--line);border-radius:6px;font:inherit}
+  .modal .row{display:flex;gap:10px;margin-top:16px}
+  .modal .row button{flex:1}
+  .modal .close{float:right;background:#eef3f8;border:0;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:15px;color:var(--navy)}
+  .faq{border-top:1px solid var(--line)}
+  .faq summary{cursor:pointer;padding:12px 4px;font-weight:600;color:var(--navy);list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";float:right}
+  .faq details[open] summary::after{content:"–"}
+  .faq p{margin:0 0 12px;padding:0 4px}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
   section{padding:36px 0;border-top:1px solid var(--line)}
   h2{color:var(--navy);font-size:24px;margin:0 0 14px}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
@@ -51,15 +67,23 @@
   <div class="wrap nav">
     <img src="assets/logo.jpg" alt="Logo de Cueto Omnia SURL">
     <div><div class="brand">Cueto Omnia SURL</div><div class="tag">Inteligencia de negocios en Cuba</div></div>
-    <nav><a href="#servicios">Servicios</a><a href="#clientes">A quién servimos</a><a href="#empresa">La empresa</a><a href="#contacto">Contacto</a></nav>
+    <nav><a href="#servicios">Servicios</a><a href="#clientes">A quién servimos</a><a href="#empresa">La empresa</a><a href="#faq">Preguntas</a><a href="#contacto">Contacto</a></nav>
   </div>
 </header>
 <main>
   <div class="hero"><div class="wrap">
-    <img src="assets/hero.webp" alt="Inteligencia de negocios para invertir en Cuba">
+    <img src="assets/banner-servicios.webp" alt="Servicios de Cueto Omnia SURL: asesoría financiera, estudios de mercado, factibilidad y asociaciones internacionales">
     <h1>Asesoría financiera e inteligencia de negocios para invertir en Cuba</h1>
+    <div class="banda" role="list" aria-label="Servicios principales" style="display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px">
+      <span role="listitem" style="background:#0a2540;color:#fff;border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600">Asesoría financiera y de gestión</span>
+      <span role="listitem" style="background:#0a66c2;color:#fff;border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600">Estudios de mercado</span>
+      <span role="listitem" style="background:#14532d;color:#fff;border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600">Estudios de factibilidad</span>
+      <span role="listitem" style="background:#57417d;color:#fff;border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600">Asociaciones Económicas Internacionales</span>
+      <span role="listitem" style="background:#5f6b7a;color:#fff;border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600">Representación de proveedores</span>
+    </div>
     <p class="lead">Ayudamos a empresas e inversionistas a entrar y operar en Cuba con información sobre el terreno, criterio financiero y decisiones basadas en datos.</p>
-    <a class="btn" href="#contacto">Solicitar una conversación</a>
+    <a class="btn" href="#" onclick="abrirConversacion(event)">Solicitar una conversación</a>
+    <span class="btn light" style="cursor:pointer" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">Preguntas frecuentes</span>
     <a class="btn light" href="https://www.linkedin.com/company/cueto-omnia-surl/">Ver en LinkedIn</a>
   </div></div>
 
@@ -86,13 +110,54 @@
     <p class="mute">Fundadora y CEO: Beatriz Águila Cueto — <a href="https://www.linkedin.com/in/beatriz-aguila-cueto">perfil en LinkedIn</a>.</p>
   </div></section>
 
+  <section id="faq"><div class="wrap">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq"><details><summary>¿Qué necesito para un estudio de mercado o de factibilidad?</summary><p class="mute">Tu sector, el objetivo del proyecto, la provincia de interés y el plazo. Con eso preparamos el alcance y te respondemos con próximos pasos y tiempos de trabajo. Sin compromiso inicial.</p></details></div>
+    <div class="faq"><details><summary>¿La gestión de importaciones es su servicio principal?</summary><p class="mute">No. Nuestro eje es la asesoría financiera y la inteligencia de negocios. La gestión de importaciones es un complemento operativo cuando el cliente lo necesita.</p></details></div>
+    <div class="faq"><details><summary>¿Trabajan solo con inversionistas extranjeros?</summary><p class="mute">También con empresas extranjeras con operaciones en Cuba y con mipymes cubanas que necesitan estructura financiera, mercado o factibilidad.</p></details></div>
+  </div></section>
+
   <section id="contacto"><div class="wrap">
     <h2>Contacto</h2>
     <p class="mute">Escríbenos a <a href="mailto:cuetomniasurl@gmail.com">cuetomniasurl@gmail.com</a> o por el perfil de empresa en <a href="https://www.linkedin.com/company/cueto-omnia-surl/">LinkedIn</a>. Cuéntanos tu sector, tu objetivo y el plazo: respondemos con próximos pasos y tiempos.</p>
   </div></section>
 </main>
 <footer><div class="wrap">Cueto Omnia SURL · La Habana, Cuba · Buenos negocios por encima de todo.</div></footer>
+
+<div class="modal" id="conv" aria-hidden="true">
+  <div class="box">
+    <button class="close" onclick="cerrarConversacion()" aria-label="Cerrar">✕</button>
+    <h3>Solicitar una conversación</h3>
+    <p class="mute" style="margin:0">Cuéntanos lo básico y abrimos tu correo con el mensaje listo. Sin guardar datos en la web.</p>
+    <label for="f-nombre">Nombre y empresa</label>
+    <input id="f-nombre" placeholder="Ej.: Ana Pérez — Empresa">
+    <label for="f-sector">Sector</label>
+    <input id="f-sector" placeholder="Ej.: agroalimentario">
+    <label for="f-objetivo">Objetivo</label>
+    <textarea id="f-objetivo" rows="3" placeholder="Ej.: Evaluar una inversión en Cuba"></textarea>
+    <label for="f-plazo">Plazo deseado</label>
+    <select id="f-plazo"><option>Sin definir</option><option>Este mes</option><option>Próximos 3 meses</option><option>Más de 3 meses</option></select>
+    <div class="row">
+      <button class="btn" style="border:0;cursor:pointer" onclick="enviarConversacion()">Preparar correo</button>
+      <button class="btn light" style="cursor:pointer" onclick="cerrarConversacion()">Cancelar</button>
+    </div>
+  </div>
+</div>
 <script>
+  const conv = document.getElementById('conv');
+  function abrirConversacion(e){ e.preventDefault(); conv.classList.add('open'); conv.setAttribute('aria-hidden','false'); }
+  function cerrarConversacion(){ conv.classList.remove('open'); conv.setAttribute('aria-hidden','true'); }
+  conv.addEventListener('click', e => { if (e.target === conv) cerrarConversacion(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') cerrarConversacion(); });
+  function enviarConversacion(){
+    const n = document.getElementById('f-nombre').value.trim();
+    const s = document.getElementById('f-sector').value.trim();
+    const o = document.getElementById('f-objetivo').value.trim();
+    const p = document.getElementById('f-plazo').value;
+    const body = encodeURIComponent('Nombre/empresa: ' + (n||'—') + '\nSector: ' + (s||'—') + '\nObjetivo: ' + (o||'—') + '\nPlazo: ' + p);
+    location.href = 'mailto:cuetomniasurl@gmail.com?subject=' + encodeURIComponent('Solicitud de conversación — Cueto Omnia SURL') + '&body=' + body;
+    cerrarConversacion();
+  }
   const topBtn = document.getElementById('top'), hdr = document.querySelector('header');
   addEventListener('scroll', () => {
     topBtn.classList.toggle('show', scrollY > 400);
