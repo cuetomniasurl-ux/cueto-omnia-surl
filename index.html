@@ -18,6 +18,16 @@
   .nav nav a{color:var(--navy);text-decoration:none}
   .hero{padding:56px 0 40px;background:linear-gradient(180deg,#f7f9fc,#fff)}
   .hero img{width:100%;max-height:360px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+  .slider{position:relative;max-width:100%;overflow:hidden;border-radius:10px}
+  .slider .slide{display:none;width:100%;max-height:360px;object-fit:cover}
+  .slider .slide.active{display:block;animation:fade .5s ease}
+  @keyframes fade{from{opacity:.4}to{opacity:1}}
+  .sbtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(10,37,64,.55);color:#fff;border:0;border-radius:50%;width:36px;height:36px;font-size:22px;cursor:pointer;line-height:1}
+  .sbtn:hover{background:rgba(10,37,64,.8)}
+  .sbtn.prev{left:10px}.sbtn.next{right:10px}
+  .dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
+  .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.55);cursor:pointer;border:1px solid rgba(10,37,64,.35)}
+  .dot.active{background:#fff}
   h1{font-size:32px;margin:28px 0 10px;color:var(--navy);line-height:1.25}
   .lead{font-size:18px;color:var(--gray);max-width:760px;margin:0 0 22px}
   .btn{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;padding:12px 22px;border-radius:6px;font-weight:600}
@@ -72,7 +82,7 @@
 </header>
 <main>
   <div class="hero"><div class="wrap">
-    <img src="assets/banner-servicios.webp" alt="Servicios de Cueto Omnia SURL: asesoría financiera, estudios de mercado, factibilidad y asociaciones internacionales">
+    <img src="assets/hero.webp" alt="Inteligencia de negocios para invertir en Cuba">
     <h1>Asesoría financiera e inteligencia de negocios para invertir en Cuba</h1>
     <div class="banda" role="list" aria-label="Servicios principales" style="display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px">
       <span role="listitem" style="background:#0a2540;color:#fff;border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600">Asesoría financiera y de gestión</span>
